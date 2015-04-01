@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Classifiers">
+      <UniqueIdentifier>{4632bd7d-c262-4886-bfc8-96c3964f838a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Testers">
+      <UniqueIdentifier>{b3edcee1-cdf3-437c-bb22-bdba916dc20d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ImageAnalysis">
+      <UniqueIdentifier>{27a4046f-2006-4012-94e2-a90367a8f8e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BottomUpApproach">
+      <UniqueIdentifier>{27ec76c4-32a2-4c06-a55c-0a2133c97821}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Auxiliary">
+      <UniqueIdentifier>{8b035c9a-3696-4d2d-9244-c686d62bfae6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="wavelib">
+      <UniqueIdentifier>{233f5e66-a789-41ff-85fa-b932e561c0ef}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Test_grid_HSV.h">
+      <Filter>Testers</Filter>
+    </ClInclude>
+    <ClInclude Include="Test_grid_HSV_texture.h">
+      <Filter>Testers</Filter>
+    </ClInclude>
+    <ClInclude Include="Test_pixel_HSV_texture.h">
+      <Filter>Testers</Filter>
+    </ClInclude>
+    <ClInclude Include="Test_grid_HSV_AB.h">
+      <Filter>Testers</Filter>
+    </ClInclude>
+    <ClInclude Include="Test_grid_LAB.h">
+      <Filter>Testers</Filter>
+    </ClInclude>
+    <ClInclude Include="Test_pixel_HSVBlurred.h">
+      <Filter>Testers</Filter>
+    </ClInclude>
+    <ClInclude Include="Test_pixel_HSVBlurred_Texture.h">
+      <Filter>Testers</Filter>
+    </ClInclude>
+    <ClInclude Include="Test_grid_HSVBlurred_HSVTextures.h">
+      <Filter>Testers</Filter>
+    </ClInclude>
+    <ClInclude Include="BottomsUp.h">
+      <Filter>BottomUpApproach</Filter>
+    </ClInclude>
+    <ClInclude Include="Classifier.h">
+      <Filter>Classifiers</Filter>
+    </ClInclude>
+    <ClInclude Include="BinaryAdaBoostClassifier.h">
+      <Filter>Classifiers</Filter>
+    </ClInclude>
+    <ClInclude Include="NeuralNetworkClassiffier.h">
+      <Filter>Classifiers</Filter>
+    </ClInclude>
+    <ClInclude Include="Tester.h">
+      <Filter>Testers</Filter>
+    </ClInclude>
+    <ClInclude Include="Test_pixel_HSVBLurred_HSVTextures.h">
+      <Filter>Testers</Filter>
+    </ClInclude>
+    <ClInclude Include="BinaryConfusionMatrix.h">
+      <Filter>Auxiliary</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfusionMatrix.h">
+      <Filter>Auxiliary</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalVariables.h">
+      <Filter>Auxiliary</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageInfo.h">
+      <Filter>Auxiliary</Filter>
+    </ClInclude>
+    <ClInclude Include="CrossValidation.h">
+      <Filter>Auxiliary</Filter>
+    </ClInclude>
+    <ClInclude Include="Wavelet2d.h">
+      <Filter>wavelib</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageAnalyser.h">
+      <Filter>ImageAnalysis</Filter>
+    </ClInclude>
+    <ClInclude Include="Test_grid_colorBlurred.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DataVisualiser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Test_grid_Laws.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Test_grid_wavelets.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Test_grid_HSVblurred_Laws_Wavelets.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Test_HSV_PixelByPixel.h">
+      <Filter>Testers</Filter>
+    </ClCompile>
+    <ClCompile Include="NeuralNetworkClassifier.cpp">
+      <Filter>Classifiers</Filter>
+    </ClCompile>
+    <ClCompile Include="BinaryAdaboostClassifier.cpp">
+      <Filter>Classifiers</Filter>
+    </ClCompile>
+    <ClCompile Include="Tester.cpp">
+      <Filter>Testers</Filter>
+    </ClCompile>
+    <ClCompile Include="BinaryConfusionMatrix.cpp">
+      <Filter>Auxiliary</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfusionMatrix.cpp">
+      <Filter>Auxiliary</Filter>
+    </ClCompile>
+    <ClCompile Include="DataVisualiser.cpp">
+      <Filter>Auxiliary</Filter>
+    </ClCompile>
+    <ClCompile Include="GlobalVariables.cpp">
+      <Filter>Auxiliary</Filter>
+    </ClCompile>
+    <ClCompile Include="Test_HSVB_TP.h">
+      <Filter>Testers</Filter>
+    </ClCompile>
+    <ClCompile Include="Wavelet2d.cpp">
+      <Filter>wavelib</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageAnalyser.cpp">
+      <Filter>ImageAnalysis</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageAnalyser_Auxiliary.cpp">
+      <Filter>ImageAnalysis</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageAnalyser2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

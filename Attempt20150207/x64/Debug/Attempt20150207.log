@@ -1,0 +1,35 @@
+﻿Build started 31/03/2015 10:26:32.
+     1>Project "C:\D\Work\University\Stage 3\final year project\C++ Workspace\Projects\Attempt20150328\Attempt20150207\Attempt20150207.vcxproj" on node 2 (Build target(s)).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(388,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (Attempt20150207.vcxproj, Attempt20150225.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /I"C:\D\Work\University\Stage 3\final year project\libraries\fftw" /I"C:\Users\Lazar\Downloads\fann-master\fann-master\src\include" /I"C:\Program Files\opencv\build\x64\vc12\..\..\include" /Zi /nologo /W3 /WX- /sdl /Od /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt Main.cpp
+         Main.cpp
+     1>c:\d\work\university\stage 3\final year project\c++ workspace\projects\attempt20150328\attempt20150207\GlobalVariables.h(21): warning C4091: 'static ' : ignored on left of 'GlobalVariables' when no variable is declared
+     1>c:\d\work\university\stage 3\final year project\c++ workspace\projects\attempt20150328\attempt20150207\CrossValidation.h(81): warning C4129: 'A' : unrecognized character escape sequence
+     1>c:\d\work\university\stage 3\final year project\c++ workspace\projects\attempt20150328\attempt20150207\CrossValidation.h(81): warning C4129: ' ' : unrecognized character escape sequence
+     1>c:\d\work\university\stage 3\final year project\c++ workspace\projects\attempt20150328\attempt20150207\CrossValidation.h(82): warning C4129: 'P' : unrecognized character escape sequence
+     1>c:\d\work\university\stage 3\final year project\c++ workspace\projects\attempt20150328\attempt20150207\CrossValidation.h(82): warning C4129: ' ' : unrecognized character escape sequence
+     1>c:\d\work\university\stage 3\final year project\c++ workspace\projects\attempt20150328\attempt20150207\CrossValidation.h(83): warning C4129: 'S' : unrecognized character escape sequence
+     1>c:\d\work\university\stage 3\final year project\c++ workspace\projects\attempt20150328\attempt20150207\CrossValidation.h(83): warning C4129: ' ' : unrecognized character escape sequence
+     1>c:\d\work\university\stage 3\final year project\c++ workspace\projects\attempt20150328\attempt20150207\CrossValidation.h(55): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\D\Work\University\Stage 3\final year project\C++ Workspace\Projects\Attempt20150328\x64\Debug\Attempt20150323.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\D\Work\University\Stage 3\final year project\libraries\fftw" /LIBPATH:"C:\Users\Lazar\Downloads\fann-master\fann-master\bin\x64" /LIBPATH:"C:\Program Files\opencv\build\x64\vc12\lib" "libfftw3-3.lib" "libfftw3f-3.lib" "libfftw3l-3.lib" fannfloatd.lib opencv_core2410d.lib opencv_imgproc2410d.lib opencv_highgui2410d.lib opencv_ml2410d.lib opencv_video2410d.lib opencv_features2d2410d.lib opencv_calib3d2410d.lib opencv_objdetect2410d.lib opencv_contrib2410d.lib opencv_legacy2410d.lib opencv_flann2410d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\D\Work\University\Stage 3\final year project\C++ Workspace\Projects\Attempt20150328\x64\Debug\Attempt20150323.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\D\Work\University\Stage 3\final year project\C++ Workspace\Projects\Attempt20150328\x64\Debug\Attempt20150323.lib" /MACHINE:X64 x64\Debug\BinaryAdaboostClassifier.obj
+         x64\Debug\BinaryConfusionMatrix.obj
+         x64\Debug\ConfusionMatrix.obj
+         x64\Debug\DataVisualiser.obj
+         x64\Debug\GlobalVariables.obj
+         x64\Debug\ImageAnalyser.obj
+         x64\Debug\ImageAnalyser2.obj
+         x64\Debug\ImageAnalyser_Auxiliary.obj
+         x64\Debug\Main.obj
+         x64\Debug\NeuralNetworkClassifier.obj
+         x64\Debug\Tester.obj
+         x64\Debug\Test_HSVB_TP.obj
+         x64\Debug\Test_HSV_PixelByPixel.obj
+         x64\Debug\Wavelet2d.obj
+         Attempt20150207.vcxproj -> C:\D\Work\University\Stage 3\final year project\C++ Workspace\Projects\Attempt20150328\x64\Debug\Attempt20150323.exe
+     1>Done Building Project "C:\D\Work\University\Stage 3\final year project\C++ Workspace\Projects\Attempt20150328\Attempt20150207\Attempt20150207.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.31

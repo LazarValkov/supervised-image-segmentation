@@ -1,0 +1,184 @@
+﻿Build started 31/03/2015 09:41:50.
+     1>Project "C:\D\Work\University\Stage 3\final year project\C++ Workspace\Projects\Attempt20150328\Attempt20150207\Attempt20150207.vcxproj" on node 2 (Rebuild target(s)).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(388,5): warning MSB8028: The intermediate directory (x64\Release\) contains files shared from another project (Attempt20150207.vcxproj, Attempt20150225.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /I"C:\D\Work\University\Stage 3\final year project\libraries\fftw" /I"C:\Users\Lazar\Downloads\fann-master2\fann-master\src\include" /I"C:\Program Files\opencv\build\x64\vc12\..\..\include" /Zi /nologo /W3 /WX- /sdl /O2 /Oi /GL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Release\\" /Fd"x64\Release\vc120.pdb" /Gd /TP /errorReport:prompt BinaryAdaboostClassifier.cpp BinaryConfusionMatrix.cpp ConfusionMatrix.cpp DataVisualiser.cpp GlobalVariables.cpp ImageAnalyser.cpp ImageAnalyser2.cpp ImageAnalyser_Auxiliary.cpp Main.cpp NeuralNetworkClassifier.cpp Tester.cpp Test_HSVB_TP.h Test_HSV_PixelByPixel.h Wavelet2d.cpp
+         BinaryAdaboostClassifier.cpp
+     1>BinaryAdaboostClassifier.cpp(39): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
+     1>BinaryAdaboostClassifier.cpp(41): warning C4244: 'argument' : conversion from 'const float' to 'int', possible loss of data
+         BinaryConfusionMatrix.cpp
+     1>BinaryConfusionMatrix.cpp(29): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>BinaryConfusionMatrix.cpp(30): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>BinaryConfusionMatrix.cpp(31): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>BinaryConfusionMatrix.cpp(32): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+         ConfusionMatrix.cpp
+     1>ConfusionMatrix.cpp(64): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>ConfusionMatrix.cpp(66): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>ConfusionMatrix.cpp(68): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>ConfusionMatrix.cpp(80): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+         DataVisualiser.cpp
+     1>c:\d\work\university\stage 3\final year project\c++ workspace\projects\attempt20150328\attempt20150207\GlobalVariables.h(21): warning C4091: 'static ' : ignored on left of 'GlobalVariables' when no variable is declared
+         GlobalVariables.cpp
+     1>c:\d\work\university\stage 3\final year project\c++ workspace\projects\attempt20150328\attempt20150207\GlobalVariables.h(21): warning C4091: 'static ' : ignored on left of 'GlobalVariables' when no variable is declared
+         ImageAnalyser.cpp
+     1>c:\d\work\university\stage 3\final year project\c++ workspace\projects\attempt20150328\attempt20150207\GlobalVariables.h(21): warning C4091: 'static ' : ignored on left of 'GlobalVariables' when no variable is declared
+     1>ImageAnalyser.cpp(23): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>ImageAnalyser.cpp(342): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
+         ImageAnalyser2.cpp
+     1>c:\d\work\university\stage 3\final year project\c++ workspace\projects\attempt20150328\attempt20150207\GlobalVariables.h(21): warning C4091: 'static ' : ignored on left of 'GlobalVariables' when no variable is declared
+     1>ImageAnalyser2.cpp(102): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
+         ImageAnalyser_Auxiliary.cpp
+     1>c:\d\work\university\stage 3\final year project\c++ workspace\projects\attempt20150328\attempt20150207\GlobalVariables.h(21): warning C4091: 'static ' : ignored on left of 'GlobalVariables' when no variable is declared
+     1>ImageAnalyser_Auxiliary.cpp(13): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>ImageAnalyser_Auxiliary.cpp(91): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>ImageAnalyser_Auxiliary.cpp(202): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
+         Main.cpp
+     1>c:\d\work\university\stage 3\final year project\c++ workspace\projects\attempt20150328\attempt20150207\GlobalVariables.h(21): warning C4091: 'static ' : ignored on left of 'GlobalVariables' when no variable is declared
+     1>c:\d\work\university\stage 3\final year project\c++ workspace\projects\attempt20150328\attempt20150207\CrossValidation.h(81): warning C4129: 'A' : unrecognized character escape sequence
+     1>c:\d\work\university\stage 3\final year project\c++ workspace\projects\attempt20150328\attempt20150207\CrossValidation.h(81): warning C4129: ' ' : unrecognized character escape sequence
+     1>c:\d\work\university\stage 3\final year project\c++ workspace\projects\attempt20150328\attempt20150207\CrossValidation.h(82): warning C4129: 'P' : unrecognized character escape sequence
+     1>c:\d\work\university\stage 3\final year project\c++ workspace\projects\attempt20150328\attempt20150207\CrossValidation.h(82): warning C4129: ' ' : unrecognized character escape sequence
+     1>c:\d\work\university\stage 3\final year project\c++ workspace\projects\attempt20150328\attempt20150207\CrossValidation.h(83): warning C4129: 'S' : unrecognized character escape sequence
+     1>c:\d\work\university\stage 3\final year project\c++ workspace\projects\attempt20150328\attempt20150207\CrossValidation.h(83): warning C4129: ' ' : unrecognized character escape sequence
+     1>c:\d\work\university\stage 3\final year project\c++ workspace\projects\attempt20150328\attempt20150207\CrossValidation.h(55): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+         NeuralNetworkClassifier.cpp
+     1>c:\d\work\university\stage 3\final year project\c++ workspace\projects\attempt20150328\attempt20150207\GlobalVariables.h(21): warning C4091: 'static ' : ignored on left of 'GlobalVariables' when no variable is declared
+     1>NeuralNetworkClassifier.cpp(72): warning C4018: '<' : signed/unsigned mismatch
+     1>NeuralNetworkClassifier.cpp(77): warning C4244: 'argument' : conversion from 'fann_type' to 'int', possible loss of data
+     1>NeuralNetworkClassifier.cpp(80): warning C4244: 'argument' : conversion from 'fann_type' to 'int', possible loss of data
+         Tester.cpp
+     1>c:\d\work\university\stage 3\final year project\c++ workspace\projects\attempt20150328\attempt20150207\GlobalVariables.h(21): warning C4091: 'static ' : ignored on left of 'GlobalVariables' when no variable is declared
+         Test_HSVB_TP.h
+     1>c:\d\work\university\stage 3\final year project\c++ workspace\projects\attempt20150328\attempt20150207\GlobalVariables.h(21): warning C4091: 'static ' : ignored on left of 'GlobalVariables' when no variable is declared
+         Test_HSV_PixelByPixel.h
+     1>c:\d\work\university\stage 3\final year project\c++ workspace\projects\attempt20150328\attempt20150207\GlobalVariables.h(21): warning C4091: 'static ' : ignored on left of 'GlobalVariables' when no variable is declared
+         Wavelet2d.cpp
+     1>Wavelet2d.cpp(46): warning C4267: 'initializing' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>Wavelet2d.cpp(47): warning C4267: 'initializing' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>Wavelet2d.cpp(86): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(87): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(107): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(110): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(113): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(117): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(120): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(128): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(129): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(286): warning C4267: '=' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>Wavelet2d.cpp(290): warning C4267: '=' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>Wavelet2d.cpp(307): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(316): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(349): warning C4267: 'initializing' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>Wavelet2d.cpp(433): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(454): warning C4267: 'initializing' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>Wavelet2d.cpp(484): warning C4267: 'initializing' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>Wavelet2d.cpp(656): warning C4267: 'initializing' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>Wavelet2d.cpp(657): warning C4267: 'initializing' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>Wavelet2d.cpp(687): warning C4267: 'initializing' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>Wavelet2d.cpp(688): warning C4267: 'initializing' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>Wavelet2d.cpp(726): warning C4267: 'initializing' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>Wavelet2d.cpp(766): warning C4267: 'initializing' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>Wavelet2d.cpp(767): warning C4267: 'initializing' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>Wavelet2d.cpp(794): warning C4267: 'initializing' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>Wavelet2d.cpp(795): warning C4267: 'initializing' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>Wavelet2d.cpp(873): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(874): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(875): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(876): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(948): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(949): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(979): warning C4267: 'initializing' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>Wavelet2d.cpp(1050): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(1051): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(1068): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(1099): warning C4267: 'initializing' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>Wavelet2d.cpp(1133): warning C4267: '=' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>Wavelet2d.cpp(1194): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(1228): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(1259): warning C4267: 'initializing' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>Wavelet2d.cpp(1283): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(1288): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(1306): warning C4267: 'initializing' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>Wavelet2d.cpp(1327): warning C4267: 'initializing' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>Wavelet2d.cpp(1402): warning C4267: 'initializing' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>Wavelet2d.cpp(1490): warning C4267: 'initializing' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>Wavelet2d.cpp(1565): warning C4267: 'initializing' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>Wavelet2d.cpp(1609): warning C4267: 'initializing' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>Wavelet2d.cpp(1634): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(1639): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(1661): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(1672): warning C4267: 'initializing' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>Wavelet2d.cpp(1680): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(1686): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(1707): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(1725): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(1726): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(1769): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(1770): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(1822): warning C4267: 'initializing' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>Wavelet2d.cpp(1870): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(1893): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(1894): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(1896): warning C4267: 'initializing' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>Wavelet2d.cpp(1940): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(1941): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(1943): warning C4267: 'initializing' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>Wavelet2d.cpp(1996): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(2035): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(2036): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(2064): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(2065): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(2070): warning C4267: 'initializing' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>Wavelet2d.cpp(2071): warning C4267: 'initializing' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>Wavelet2d.cpp(2090): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(2091): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(2110): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(2111): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(2200): warning C4267: 'initializing' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>Wavelet2d.cpp(2201): warning C4267: 'initializing' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>Wavelet2d.cpp(2228): warning C4267: 'initializing' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>Wavelet2d.cpp(2229): warning C4267: 'initializing' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>Wavelet2d.cpp(2309): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(2310): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(2400): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(2401): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(2446): warning C4267: 'initializing' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>Wavelet2d.cpp(2453): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(2454): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(2488): warning C4267: 'initializing' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>Wavelet2d.cpp(2495): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(2496): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(2524): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(2525): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(2598): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(2599): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(2600): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(2601): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(2671): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(2672): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(2687): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>Wavelet2d.cpp(2688): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\D\Work\University\Stage 3\final year project\C++ Workspace\Projects\Attempt20150328\x64\Release\Attempt20150323.exe" /NOLOGO /LIBPATH:"C:\D\Work\University\Stage 3\final year project\libraries\fftw" /LIBPATH:"C:\Users\Lazar\Downloads\fann-master2\fann-master\bin\x64" /LIBPATH:"C:\Program Files\opencv\build\x64\vc12\lib" "libfftw3-3.lib" "libfftw3f-3.lib" "libfftw3l-3.lib" fannfloat.lib opencv_core2410.lib opencv_imgproc2410.lib opencv_highgui2410.lib opencv_ml2410.lib opencv_video2410.lib opencv_features2d2410.lib opencv_calib3d2410.lib opencv_objdetect2410.lib opencv_contrib2410.lib opencv_legacy2410.lib opencv_flann2410.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\D\Work\University\Stage 3\final year project\C++ Workspace\Projects\Attempt20150328\x64\Release\Attempt20150323.pdb" /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\D\Work\University\Stage 3\final year project\C++ Workspace\Projects\Attempt20150328\x64\Release\Attempt20150323.lib" /MACHINE:X64 x64\Release\BinaryAdaboostClassifier.obj
+         x64\Release\BinaryConfusionMatrix.obj
+         x64\Release\ConfusionMatrix.obj
+         x64\Release\DataVisualiser.obj
+         x64\Release\GlobalVariables.obj
+         x64\Release\ImageAnalyser.obj
+         x64\Release\ImageAnalyser2.obj
+         x64\Release\ImageAnalyser_Auxiliary.obj
+         x64\Release\Main.obj
+         x64\Release\NeuralNetworkClassifier.obj
+         x64\Release\Tester.obj
+         x64\Release\Test_HSVB_TP.obj
+         x64\Release\Test_HSV_PixelByPixel.obj
+         x64\Release\Wavelet2d.obj
+            Creating library C:\D\Work\University\Stage 3\final year project\C++ Workspace\Projects\Attempt20150328\x64\Release\Attempt20150323.lib and object C:\D\Work\University\Stage 3\final year project\C++ Workspace\Projects\Attempt20150328\x64\Release\Attempt20150323.exp
+         Generating code
+         Finished generating code
+         Attempt20150207.vcxproj -> C:\D\Work\University\Stage 3\final year project\C++ Workspace\Projects\Attempt20150328\x64\Release\Attempt20150323.exe
+     1>Done Building Project "C:\D\Work\University\Stage 3\final year project\C++ Workspace\Projects\Attempt20150328\Attempt20150207\Attempt20150207.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:22.70
