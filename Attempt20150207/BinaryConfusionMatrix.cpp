@@ -7,6 +7,7 @@ BinaryConfusionMatrix::BinaryConfusionMatrix() : ConfusionMatrix(2) {
 		}
 	}
 }
+//testcomment
 void BinaryConfusionMatrix::logPrediction(int expectedClass, int predictedClass) {
 	confusionMatrix[expectedClass][predictedClass]++;
 }
