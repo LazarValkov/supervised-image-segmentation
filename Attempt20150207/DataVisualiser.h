@@ -9,9 +9,19 @@ using namespace cv;
 using namespace std;
 class DataVisualiser {
 public:
-	/**Only for DEBUG**/
-	static Mat* imgAnnotated_gridsized;
-	static void DataVisualiser::visualizeClassifiedFromBottomToTop(vector<int>& classifiedResults, string annotatedImageFilePath);
-
+	struct VisualisingData {
+		VisualisingData(Mat aImg, GlobalVariables::Organ posOrg, GlobalVariables::Organ negOrg, int beginInd)
+			: annotatedImage(aImg), positiveOrgan(posOrg), negativeOrgans(negOrg), startInd(beginInd) {}
+		Mat annotatedImage;
+		GlobalVariables::Organ positiveOrgan;
+		GlobalVariables::Organ negativeOrgans;
+		int startInd;
+	};
+	
+	static vector<VisualisingData> visualisingData;
+	static bool isOn;
+	static void visualiseResults(vector<int>& classifiedResults);
+private:
+	static void visualizeImageResults(VisualisingData& visualisingData, vector<int>& classifiedResults);
 };
 #endif

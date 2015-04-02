@@ -13,7 +13,7 @@ public:
 	BinaryAdaBoostClassifier();
 
 	virtual void train(const Mat& input_f, Mat& correctOutput_f);
-	virtual ConfusionMatrix*  test(const Mat& input_f, const Mat& correctOutput_f, bool visualiseOutput);
+	virtual ConfusionMatrix*  test(const Mat& input_f, const Mat& correctOutput_f);
 	virtual void save(const string file);
 	virtual float classify(const Mat& input_f, int row) { return -1; }
 

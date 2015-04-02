@@ -20,16 +20,17 @@ public:
 
 	static void prepareClassificationData(Mat &input_f, Mat &correctOutput_f,
 		const IA_Functions functionsSelection
-		, vector<ImageInfo*> imagesInfos, int imgWidth, int imgHeight, bool isTraining,
-		const int featureVectorSize_input, const int featureVectorSize_output, GlobalVariables::Organ positiveOrgan);
+		, vector<ImageInfo*> imagesInfos, int imgWidth, int imgHeight, bool isTraining
+		,const int featureVectorSize_input, const int featureVectorSize_output
+		, GlobalVariables::Organ positiveOrgan, GlobalVariables::Organ negativeOrgans);
 	static void processImage(string& filenameImg, string& filenameAnnotatedImg, bool isForTraining
 		, Mat &input, Mat &correctOutput, int &currentEntry, const IA_Functions functionsSelection
-		, vector<int> &organsCount, GlobalVariables::Organ positiveOrgan);
+		, vector<int> &organsCount, GlobalVariables::Organ positiveOrgan, GlobalVariables::Organ negativeOrgans);
 	static void addImageToInput_Binary(Mat &image, Mat& annotatedImage
 		, vector<Mat>& inputFeatureMatrixVector, Mat& input, Mat& correctOutput
-		, vector<int> &organsCount, GlobalVariables::Organ positiveOrgan
+		, vector<int> &organsCount, GlobalVariables::Organ positiveOrgan, GlobalVariables::Organ negativeOrgans
 		, bool isForTraining, int &currentEntry);
-	static void addImageToInput_Binary_CalculateOrgansAddingChance(GlobalVariables::Organ positiveOrgan, vector<int>& organsCount, vector<int>& organsAddingChance, bool isForTraining);
+	static void addImageToInput_Binary_CalculateOrgansAddingChance(GlobalVariables::Organ positiveOrgan, GlobalVariables::Organ negativeOrgans, vector<int>& organsCount, vector<int>& organsAddingChance, bool isForTraining);
 	static void convertToGrid(Mat &image, Mat &annotatedImage, vector<int> &organsCount, vector<Mat>& inputFeatureMatrixVector);
 	static void downsampleUsingGPyramid(Mat &image, Mat &annotatedImage, vector<int> &organsCount);
 	

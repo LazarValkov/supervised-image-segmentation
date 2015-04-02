@@ -17,7 +17,7 @@ public:
 	NeuralNetworkClassifier(int i, int hiddenUnits, int o);
 
 	virtual void train(const Mat& input_f, Mat& correctOutput_f);
-	virtual ConfusionMatrix*  test(const Mat& input_f, const Mat& correctOutput_f, bool visualiseOutput);
+	virtual ConfusionMatrix*  test(const Mat& input_f, const Mat& correctOutput_f);
 	virtual float classify(const Mat& input_f, int row);
 	//DEBUG. TODO: Find a better way!
 	virtual float classifyImg(Mat& input_f, Mat& img, Mat &annotatedImg, Mat& output);

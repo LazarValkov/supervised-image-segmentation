@@ -1,33 +1,51 @@
 #include "DataVisualiser.h"
-Mat* DataVisualiser::imgAnnotated_gridsized = new Mat();
+bool DataVisualiser::isOn = false;
+void DataVisualiser::visualiseResults(vector<int>& classifiedResults) {
+	int classifiedImages = visualisingData.size();
+	for (int i = 0; i < classifiedImages; ++i) {
+		visualizeImageResults(visualisingData[i], classifiedResults);
+	}
+}
+void DataVisualiser::visualizeImageResults(VisualisingData& visualisationData, vector<int>& classifiedResults) {
 
-void DataVisualiser::visualizeClassifiedFromBottomToTop(vector<int>& classifiedResults, string annotatedImageFilePath) {
-
-	/*Load annotated image*/
-	//Mat annotatedImage = imread(annotatedImageFilePath);
-	Mat& annotatedImage = *imgAnnotated_gridsized;
+	Mat& annotatedImage = (visualisationData.annotatedImage);
+	GlobalVariables::Organ positiveOrgan = visualisationData.positiveOrgan;
+	GlobalVariables::Organ negativeOrgans = visualisationData.negativeOrgans;
+	int currentIndx = visualisationData.startInd;
 
 	int rowsCount = annotatedImage.rows;
 	int colsCount = annotatedImage.cols;
 
-	int currentEntry = 0;
+	Vec3b color_Positive = Vec3b(7, 135, 255);
+	Vec3b color_Negative = Vec3b(236, 43, 197);
 
 	for (int j = rowsCount - 1; j > -1; j--)
 	{
 		for (int i = colsCount - 1; i > -1; i--)
 		{
-			Vec3b intensity = annotatedImage.at<Vec3b>(j, i);
-			/**Modify only offal pixels**/
-			if (intensity == GlobalVariables::COLOR_OFFAL_BACKGROUND) continue;
-			//debug: ignore liver and diaphragm, too
-			if (intensity == GlobalVariables::COLOR_DIAPHRAGM || intensity == GlobalVariables::COLOR_LIVER)  {
+			Vec3b annotatedImgIntensity = annotatedImage.at<Vec3b>(j, i);
+			if (annotatedImgIntensity == GlobalVariables::COLOR_OFFAL_BACKGROUND) continue;
+
+			GlobalVariables::Organ currentOrgan;
+
+			if (annotatedImgIntensity == GlobalVariables::COLOR_OFFAL_BACKGROUND)
 				continue;
-			}
 
-
-			if (currentEntry >= classifiedResults.size())
+			currentOrgan = GlobalVariables::getOrganByColor(annotatedImgIntensity);
+						
+			if (!(currentOrgan & negativeOrgans || currentOrgan & positiveOrgan))
+				continue;
+			if (currentIndx >= classifiedResults.size())
 				break;
-			annotatedImage.at<Vec3b>(j, i) = GlobalVariables::ANNOTATED_ORGAN_COLORS[classifiedResults[currentEntry++]];
+			//annotatedImage.at<Vec3b>(j, i) = currentOrganColor;
+
+			
+			if (classifiedResults[currentIndx])
+				annotatedImage.at<Vec3b>(j, i) = color_Positive;
+			else
+				annotatedImage.at<Vec3b>(j, i) = color_Negative;
+			
+			++currentIndx;
 		}
 	}
 
@@ -36,3 +54,5 @@ void DataVisualiser::visualizeClassifiedFromBottomToTop(vector<int>& classifiedR
 	//waitKey(0);
 	//destroyAllWindows();
 }
+
+vector<DataVisualiser::VisualisingData> DataVisualiser::visualisingData;

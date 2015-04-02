@@ -26,6 +26,7 @@ public:
 	int featureVectorSize_Input;
 	int featureVectorSize_Output;
 	GlobalVariables::Organ positiveOrgan;
+	GlobalVariables::Organ negativeOrgans;
 
 
 	/*Purely Virtual Getters*/

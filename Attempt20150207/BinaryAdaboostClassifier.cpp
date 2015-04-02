@@ -25,7 +25,7 @@ void BinaryAdaBoostClassifier::train(const Mat& input_f, Mat& correctOutput_f) {
 	boost.train(input_f, CV_ROW_SAMPLE, correctOutput_f);
 }
 
-ConfusionMatrix*  BinaryAdaBoostClassifier::test(const Mat& input_f, const Mat& correctOutput_f, bool visualiseOutput) {
+ConfusionMatrix*  BinaryAdaBoostClassifier::test(const Mat& input_f, const Mat& correctOutput_f) {
 	BinaryConfusionMatrix *confusionMatrix = new BinaryConfusionMatrix();
 
 	int rows = correctOutput_f.rows;

@@ -6,7 +6,7 @@
 class Test_grid_HSV : public Tester {
 public:
 	
-	Test_grid_HSV(bool ttrainClassifier, bool lloadClassifierFromFile, GlobalVariables::Organ organ)
+	Test_grid_HSV(bool ttrainClassifier, bool lloadClassifierFromFile, GlobalVariables::Organ posOrgan, GlobalVariables::Organ negOrgans)
 		: Tester(ttrainClassifier, lloadClassifierFromFile) {
 		description = "Test_grid_HSV";
 		classifierFilename = classifiersStoreFolder + "test_grid_HSV.txt";
@@ -14,7 +14,8 @@ public:
 		IAFunctions = ImageAnalyser::IA_Functions::TO_GRID | ImageAnalyser::IA_Functions::ADD_HSV_BLURRED;// | ImageAnalyser::IA_Functions::TEXTURE_WAVELET;
 		featureVectorSize_Input = 3;
 		featureVectorSize_Output = 1;
-		positiveOrgan = organ;
+		positiveOrgan = posOrgan;
+		negativeOrgans = negOrgans;
 	}
 
 	int nn_HiddenUnits = 5;

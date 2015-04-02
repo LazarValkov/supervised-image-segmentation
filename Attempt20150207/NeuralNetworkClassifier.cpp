@@ -46,10 +46,10 @@ void NeuralNetworkClassifier::train(const Mat& input_f, Mat& correctOutput_f) {
 		iterations_between_reports, desired_error);
 }
 
-ConfusionMatrix* NeuralNetworkClassifier::test(const Mat& input_f, const Mat& correctOutput_f, bool visualiseOutput) {
+ConfusionMatrix* NeuralNetworkClassifier::test(const Mat& input_f, const Mat& correctOutput_f) {
 	// define classification output vector
 	//Mat classificationResult = Mat(1, outputVectorSize, CV_32FC1);
-
+	bool visualiseOutput = DataVisualiser::isOn;
 	vector<int> resultsForVisualisation;
 
 	training_data trainingData;
@@ -87,7 +87,7 @@ ConfusionMatrix* NeuralNetworkClassifier::test(const Mat& input_f, const Mat& co
 	confusionMatrix->calculateOverallMeasures();
 	cout << *confusionMatrix << endl;
 	if (visualiseOutput)
-		DataVisualiser::visualizeClassifiedFromBottomToTop(resultsForVisualisation, lastProcessedImgAnnotatedFilename);
+		DataVisualiser::visualiseResults(resultsForVisualisation);
 
 	return confusionMatrix;
 }

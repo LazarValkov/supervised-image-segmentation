@@ -46,5 +46,3 @@ std::ostream& BinaryConfusionMatrix::outputString(std::ostream& outStream) {
 	outStream << endl;
 	return outStream;
 }
-
-//ostream& operator<< (ostream& outStream, BinaryConfusionMatrix confusionMatrix) {}

@@ -56,12 +56,6 @@ void ImageAnalyser::convertToGrid(Mat &image, Mat &annotatedImage, vector<int> &
 	//reduce the number of organs accordingly
 	const int gridSizeSquared = gridSize * gridSize;
 	for (int i = 0; i < organsCount.size(); ++i) { organsCount[i] /= gridSizeSquared; }
-
-#ifdef VISUALISE_DATA
-	
-#endif // VISUALISE_DATA
-	DataVisualiser::imgAnnotated_gridsized = new Mat(newAnnotatedImg);
-
 }
 
 void ImageAnalyser::downsampleUsingGPyramid(Mat &image, Mat &annotatedImage, vector<int> &organsCount) {

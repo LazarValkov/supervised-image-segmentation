@@ -4,7 +4,7 @@
 
 class Test_grid_colorBlurred : public Tester {
 public:
-	Test_grid_colorBlurred(bool ttrainClassifier, bool lloadClassifierFromFile, GlobalVariables::Organ organ)
+	Test_grid_colorBlurred(bool ttrainClassifier, bool lloadClassifierFromFile, GlobalVariables::Organ posOrgan, GlobalVariables::Organ negOrgans)
 		: Tester(ttrainClassifier, lloadClassifierFromFile) {
 		description = "Test_grid_colorBlurred_NeuralNetwork";
 		classifierFilename = classifiersStoreFolder + "test_grid_colorBlurred.txt";
@@ -12,8 +12,10 @@ public:
 		IAFunctions = ImageAnalyser::IA_Functions::ADD_HSV_BLURRED | ImageAnalyser::IA_Functions::TO_GRID;// | ImageAnalyser::IA_Functions::COLOR_HIST_EQ;
 		featureVectorSize_Input = 3;
 		featureVectorSize_Output = 1;
-		positiveOrgan = organ;
+		positiveOrgan = posOrgan;
+		negativeOrgans = negOrgans;
 	}
+
 	int nn_HiddenUnits = 6;
 	int nn_maxInterations = 500;
 	virtual Classifier* getClassifier() {

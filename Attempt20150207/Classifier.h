@@ -13,7 +13,7 @@ class Classifier {
 public:
 
 	virtual void train(const Mat& input_f, Mat& correctOutput_f) = 0;
-	virtual ConfusionMatrix* test(const Mat& input_f, const Mat& correctOutput_f, bool visualiseOutput) = 0;
+	virtual ConfusionMatrix* test(const Mat& input_f, const Mat& correctOutput_f) = 0;
 	virtual float classify(const Mat& input_f, int row) = 0;
 	virtual float classifyImg(Mat& input_f, Mat& img, Mat &annotatedImg, Mat& output) { return -1.; }
 	virtual void save(const string file) = 0;

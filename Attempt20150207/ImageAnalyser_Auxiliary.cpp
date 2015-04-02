@@ -1,13 +1,14 @@
 #include "ImageAnalyser.h"
 #include <fstream>
 #include <iostream>
+#include "DataVisualiser.h"
 
 using namespace std;
 
 void ImageAnalyser::prepareClassificationData(Mat &input_f, Mat &correctOutput_f,
 	const IA_Functions functionsSelection
 	,vector<ImageInfo*> imagesInfos, int imgWidth, int imgHeight, bool isTraining,
-	const int featureVectorSize_input, const int featureVectorSize_output, GlobalVariables::Organ positiveOrgan) {
+	const int featureVectorSize_input, const int featureVectorSize_output, GlobalVariables::Organ positiveOrgan, GlobalVariables::Organ negativeOrgans) {
 
 	
 	int numOfListedImages = imagesInfos.size();
@@ -31,7 +32,7 @@ void ImageAnalyser::prepareClassificationData(Mat &input_f, Mat &correctOutput_f
 		cout << "processing " << cii->filename_img << endl;
 		processImage(cii->filename_img, cii->filename_aImg, isTraining,
 			*input, *correctOutput, entryCount, functionsSelection,
-			organsCount, positiveOrgan);
+			organsCount, positiveOrgan, negativeOrgans);
 	}
 
 	/**Now trim the matrices**/
@@ -43,11 +44,13 @@ void ImageAnalyser::prepareClassificationData(Mat &input_f, Mat &correctOutput_f
 
 void ImageAnalyser::processImage(string& filenameImg, string& filenameAnnotatedImg, bool isForTraining
 	, Mat &input, Mat &correctOutput, int &currentEntry, const IA_Functions functionsSelection
-	, vector<int> &organsCount, GlobalVariables::Organ positiveOrgan) {
+	, vector<int> &organsCount, GlobalVariables::Organ positiveOrgan, GlobalVariables::Organ negativeOrgans) {
 
 	Mat image = imread(filenameImg);
 	Mat annotatedImage = imread(filenameAnnotatedImg);
 	vector<Mat> inputFeatureMatrixVector;
+	//startingEntry is used for visualisation only
+	int startingEntry = currentEntry;
 
 	if (functionsSelection & COLOR_HIST_EQ) {
 		equaliseColorHisto(image);
@@ -83,13 +86,55 @@ void ImageAnalyser::processImage(string& filenameImg, string& filenameAnnotatedI
 		convertToGrid(image, annotatedImage, organsCount, inputFeatureMatrixVector);
 	}
 	addImageToInput_Binary(image, annotatedImage, inputFeatureMatrixVector
-		, input, correctOutput, organsCount, positiveOrgan, isForTraining, currentEntry);
+		, input, correctOutput, organsCount, positiveOrgan, negativeOrgans, isForTraining, currentEntry);
+	
+	if (DataVisualiser::isOn)
+		DataVisualiser::visualisingData.push_back(DataVisualiser::VisualisingData(annotatedImage, positiveOrgan, negativeOrgans, startingEntry));
 }
 
-void ImageAnalyser::addImageToInput_Binary_CalculateOrgansAddingChance(GlobalVariables::Organ positiveOrgan, vector<int>& organsCount, vector<int>& organsAddingChance, bool isForTraining) {
-	int posExamples = organsCount[positiveOrgan];
+void ImageAnalyser::addImageToInput_Binary_CalculateOrgansAddingChance(GlobalVariables::Organ positiveOrgan, GlobalVariables::Organ negativeOrgans, vector<int>& organsCount, vector<int>& organsAddingChance, bool isForTraining) {
+	int posExamplesCount = organsCount[GlobalVariables::getOrganIndex(positiveOrgan)];
+	int negExamplesCount = 0;
+	int negOrgansCount = 0;
+
 	int organsCountSize = organsCount.size();
+	int lastOrganIntValue = pow(2, organsCountSize);
 	
+	/**get the sum of all the negative examples and calculate **/
+	for (int i = GlobalVariables::OTHERS; i < lastOrganIntValue; i *= 2) {
+		GlobalVariables::Organ currentOrgan = static_cast<GlobalVariables::Organ>(i);
+		int currentOrganIndex = GlobalVariables::getOrganIndex(currentOrgan);
+		if (currentOrgan & negativeOrgans) {
+			++negOrgansCount;
+			negExamplesCount += organsCount[currentOrganIndex];
+		}
+	}
+	
+	int negativeOrganAddingChance = 100;
+	int positiveOrganAddingChance = 100;
+
+	if (isForTraining) {
+		if (negExamplesCount > posExamplesCount) {
+			negativeOrganAddingChance = negExamplesCount == 0 ? 0 :
+				(int)((posExamplesCount * 100) / negExamplesCount);
+		}
+		else if (negExamplesCount < posExamplesCount){
+			positiveOrganAddingChance = posExamplesCount == 0 ? 0 :
+				(int)((negExamplesCount * 100) / posExamplesCount);
+		}
+	}
+
+	for (int i = GlobalVariables::OTHERS; i < lastOrganIntValue; i *= 2) {
+		GlobalVariables::Organ currentOrgan = static_cast<GlobalVariables::Organ>(i);
+		int currentOrganIndex = GlobalVariables::getOrganIndex(currentOrgan);
+		if (currentOrgan & negativeOrgans)
+			organsAddingChance.push_back(negativeOrganAddingChance);
+		else if (currentOrgan == positiveOrgan)
+			organsAddingChance.push_back(positiveOrganAddingChance);
+		else
+			organsAddingChance.push_back(0);
+	}
+
 	//since the count of organs, other than the positiveOrgan is 4
 	
 	//int examplesPerOrgan = posExamples / 4;
@@ -125,7 +170,7 @@ void ImageAnalyser::addImageToInput_Binary_CalculateOrgansAddingChance(GlobalVar
 	organsAddingChance.push_back(0);
 	*/
 
-	/*DEBUG: add only lungs vs HEART+OTHERS, rest others */
+	/*DEBUG: add only lungs vs HEART+OTHERS, rest others 
 	int heartAndOthersAddingChance = 100;
 	int lungsAddingChance = 100;
 	int heartAndOthersCount = organsCount[0] + organsCount[1];
@@ -155,26 +200,23 @@ void ImageAnalyser::addImageToInput_Binary_CalculateOrgansAddingChance(GlobalVar
 	organsAddingChance.push_back(0);
 	//liver
 	organsAddingChance.push_back(0);
-
+	*/
 
 }
 
 void ImageAnalyser::addImageToInput_Binary(Mat &image, Mat& annotatedImage, vector<Mat>& inputFeatureMatrixVector
-	, Mat& input, Mat& correctOutput, vector<int> &organsCount, GlobalVariables::Organ positiveOrgan, bool isForTraining, int &currentEntry) {
+	, Mat& input, Mat& correctOutput, vector<int> &organsCount, GlobalVariables::Organ positiveOrgan, GlobalVariables::Organ negativeOrgans, bool isForTraining, int &currentEntry) {
 
 	/**Add acquired information to the input/output matrices**/
 	int rowsCount = image.rows;
 	int colsCount = image.cols;
 
 	vector<int> organsAddingChance;
-	addImageToInput_Binary_CalculateOrgansAddingChance(positiveOrgan, organsCount, organsAddingChance, isForTraining);	
+	addImageToInput_Binary_CalculateOrgansAddingChance(positiveOrgan, negativeOrgans, organsCount, organsAddingChance, isForTraining);	
 
 	GlobalVariables::Organ currentOrgan;
-	int currentNegativeExampleAddingChance;
-
-	/***DEBUG***/
-	Vec3b imgDebugColor_positive = Vec3b(7, 135, 255);
-	Vec3b imgDebugColor_rest = Vec3b(236, 43, 197);
+	int currentOrganExampleAddingChance;
+	
 
 	int j, i;
 	for (j = rowsCount - 1; j > -1; j--)
@@ -185,24 +227,15 @@ void ImageAnalyser::addImageToInput_Binary(Mat &image, Mat& annotatedImage, vect
 			/**Add only offal pixels**/
 			if (annotatedImgIntensity == GlobalVariables::COLOR_OFFAL_BACKGROUND)
 				continue;
-			if (annotatedImgIntensity == GlobalVariables::COLOR_LIVER)
-				currentOrgan = GlobalVariables::Organ::LIVER;
-			else if (annotatedImgIntensity == GlobalVariables::COLOR_DIAPHRAGM)
-				currentOrgan = GlobalVariables::Organ::DIAPHRAGME;
-			else if (annotatedImgIntensity == GlobalVariables::COLOR_LUNGS)
-				currentOrgan = GlobalVariables::Organ::LUNGS;
-			else if (annotatedImgIntensity == GlobalVariables::COLOR_HEART)
-				currentOrgan = GlobalVariables::Organ::HEART;
-			else if (annotatedImgIntensity == GlobalVariables::COLOR_OTHERS)
-				currentOrgan = GlobalVariables::Organ::OTHERS;
 
-			currentNegativeExampleAddingChance = organsAddingChance[currentOrgan];
+			currentOrgan = GlobalVariables::getOrganByColor(annotatedImgIntensity);
+			currentOrganExampleAddingChance = organsAddingChance[GlobalVariables::getOrganIndex(currentOrgan)];
 
 			/**Check what the class is and make a decision whether to add it**/
 			float outputClass = currentOrgan == positiveOrgan ? 1 : 0;
 
 			//else if (!isForTr9aining) {/*empty so that the code execution can continue;*/ }
-			if ((rand() % 100) + 1 > currentNegativeExampleAddingChance) continue;
+			if ((rand() % 100) + 1 > currentOrganExampleAddingChance) continue;
 			
 			
 			/**Set expected output**/
@@ -215,11 +248,13 @@ void ImageAnalyser::addImageToInput_Binary(Mat &image, Mat& annotatedImage, vect
 
 			++currentEntry;
 
-			/**DEBUG**/
-			if (annotatedImgIntensity == GlobalVariables::ANNOTATED_ORGAN_COLORS[positiveOrgan])
+			/*DEBUG
+			Vec3b imgDebugColor_positive = Vec3b(7, 135, 255);
+			Vec3b imgDebugColor_rest = Vec3b(236, 43, 197);
+			if (currentOrgan == positiveOrgan)
 				annotatedImage.at<Vec3b>(j, i) = imgDebugColor_positive;
 			else
-				annotatedImage.at<Vec3b>(j, i) = imgDebugColor_rest;
+				annotatedImage.at<Vec3b>(j, i) = imgDebugColor_rest;*/
 		}
 	}
 }

@@ -3,7 +3,6 @@
 #include <fstream>
 
 
-
 ConfusionMatrix* Tester::run(string logFilename, vector<ImageInfo*>& trainingImages, vector<ImageInfo*>& validationImages
 	,int imgWidth, int imgHeight) {
 	
@@ -19,7 +18,7 @@ ConfusionMatrix* Tester::run(string logFilename, vector<ImageInfo*>& trainingIma
 	/**Run Image Analysis**/
 	ImageAnalyser::prepareClassificationData(*input_f_train, *correctOutput_f_train, IAFunctions
 		, trainingImages, imgWidth, imgHeight, true, featureVectorSize_Input
-		, featureVectorSize_Output, positiveOrgan);
+		, featureVectorSize_Output, positiveOrgan, negativeOrgans);
 	float ** normalisationParameters = ImageAnalyser::calculateNormalizationParameters(*input_f_train);
 	if (trainClassifier) {
 		ImageAnalyser::normaliseData(*input_f_train, normalisationParameters);
@@ -36,19 +35,12 @@ ConfusionMatrix* Tester::run(string logFilename, vector<ImageInfo*>& trainingIma
 	/**Run Image Analysis**/
 	ImageAnalyser::prepareClassificationData(*input_f_test, *correctOutput_f_test, IAFunctions
 		, validationImages, imgWidth, imgHeight, false, featureVectorSize_Input
-		, featureVectorSize_Output, positiveOrgan);
+		, featureVectorSize_Output, positiveOrgan, negativeOrgans);
 	//Using the normalisationParameters calculated on the training data
 	ImageAnalyser::normaliseData(*input_f_test, normalisationParameters);
 
-	bool visualiseResults = false;
-#ifdef VISUALISE_DATA
-	
-#endif // VISUALISE_DATA
-	classifier->lastProcessedImgAnnotatedFilename = "C:\\D\\Work\\University\\Stage 3\\final year project\\data\\annotatedImagesOnly\\Train\\DSC_4483_a.png";
-	visualiseResults = true;
 
-
-	ConfusionMatrix* testResults = classifier->test(*input_f_test, *correctOutput_f_test, visualiseResults);
+	ConfusionMatrix* testResults = classifier->test(*input_f_test, *correctOutput_f_test);
 	
 
 	for (int i = 0; i < input_f_test->cols; ++i)
