@@ -80,7 +80,8 @@ void ImageAnalyser::processImage(string& filenameImg, string& filenameAnnotatedI
 		addY(image, inputFeatureMatrixVector);
 	}
 	if (functionsSelection & TEXTURE_WAVELET) {
-		addWaveletMeasures(filenameImg.substr(filenameImg.length()-12), inputFeatureMatrixVector);
+		//addWaveletMeasures_myInitialIdea(filenameImg.substr(filenameImg.length() - 12), inputFeatureMatrixVector);
+		addWaveletMeasures_unsupervisedTextureSegmentationPaper(filenameImg.substr(filenameImg.length() - 12), inputFeatureMatrixVector);
 	}
 	if (functionsSelection & TO_GRID) {
 		convertToGrid(image, annotatedImage, organsCount, inputFeatureMatrixVector);

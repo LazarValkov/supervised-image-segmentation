@@ -46,7 +46,8 @@ public:
 	static void addLawsEnergyMeasuresGaussianPyramid(Mat &img, vector<Mat>& inputFeatureMatrixVector);
 	static void extractLaws(Mat& oneChannelFloatImg, vector<Mat>& ms_tex_ene_fin);
 	
-	static void addWaveletMeasures(string& waveletFilename, vector<Mat>& inputFeatureMatrixVector);
+	static void addWaveletMeasures_myInitialIdea(string& waveletFilename, vector<Mat>& inputFeatureMatrixVector);
+	static void addWaveletMeasures_unsupervisedTextureSegmentationPaper(string& waveletFilename, vector<Mat>& inputFeatureMatrixVector);
 
 	/***Other***/
 	static void addY(Mat &img, vector<Mat>& inputFeatureMatrixVector);

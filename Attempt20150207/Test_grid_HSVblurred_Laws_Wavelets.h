@@ -5,7 +5,7 @@
 class Test_grid_HSVblurred_Laws_Wavelets : public Tester {
 public:
 
-	Test_grid_HSVblurred_Laws_Wavelets(bool ttrainClassifier, bool lloadClassifierFromFile, GlobalVariables::Organ organ)
+	Test_grid_HSVblurred_Laws_Wavelets(bool ttrainClassifier, bool lloadClassifierFromFile, GlobalVariables::Organ posOrgan, GlobalVariables::Organ negOrgans)
 		: Tester(ttrainClassifier, lloadClassifierFromFile) {
 		description = "Test_grid_HSVblurred_Laws_Wavelets";
 		classifierFilename = classifiersStoreFolder + "Test_grid_HSVblurred_Laws_Wavelets.txt";
@@ -14,7 +14,8 @@ public:
 			| ImageAnalyser::IA_Functions::ADD_LAWS_ENERGY_MEASURES | ImageAnalyser::IA_Functions::TEXTURE_WAVELET;
 		featureVectorSize_Input = 24;
 		featureVectorSize_Output = 1;
-		positiveOrgan = organ;
+		positiveOrgan = posOrgan;
+		negativeOrgans = negOrgans;
 	}
 
 	int nn_HiddenUnits = 27;

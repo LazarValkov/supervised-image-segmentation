@@ -32,16 +32,19 @@ void main() {
 	string fileList_test =			"C:\\D\\Work\\University\\Stage 3\\final year project\\data\\annotatedImagesOnly\\Train\\filelist_validate_d.txt";
 
 	GlobalVariables::Organ positiveOrgan = GlobalVariables::LUNGS;
-	GlobalVariables::Organ negativeOrgans = GlobalVariables::LIVER | GlobalVariables::DIAPHRAGME;
+	GlobalVariables::Organ negativeOrgans = GlobalVariables::HEART | GlobalVariables::OTHERS;
 
 	DataVisualiser::isOn = true;
 
 	CrossValidation crossVal;
 
-	Test_grid_colorBlurred* tgcb = new Test_grid_colorBlurred(false, true, positiveOrgan, negativeOrgans);
-	crossVal.kfold(2, logFilepath, fileList_train_debug, tgcb);
+	Test_grid_wavelets* tgwlts = new Test_grid_wavelets(true, false, positiveOrgan, negativeOrgans);
+	crossVal.kfold(5, logFilepath, fileList_train_full, tgwlts);
+
+	//Test_grid_colorBlurred* tgcb = new Test_grid_colorBlurred(false, true, positiveOrgan, negativeOrgans);
+	//crossVal.kfold(2, logFilepath, fileList_train_debug, tgcb);
 	
-	//Test_grid_HSVblurred_Laws_Wavelets* tghsvblw = new Test_grid_HSVblurred_Laws_Wavelets(false, true, GlobalVariables::LUNGS);
+	//Test_grid_HSVblurred_Laws_Wavelets* tghsvblw = new Test_grid_HSVblurred_Laws_Wavelets(false, true, positiveOrgan, negativeOrgans);
 	//crossVal.kfold(2, logFilepath, fileList_train_debug, tghsvblw);
 
 	system("pause");
