@@ -70,6 +70,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CountNumberOfOrgansInImages.cpp" />
+    <ClCompile Include="Extract_offal.cpp" />
+    <ClCompile Include="Extract_wavelets.cpp" />
+    <ClCompile Include="Wavelet2d.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Wavelet2d.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
