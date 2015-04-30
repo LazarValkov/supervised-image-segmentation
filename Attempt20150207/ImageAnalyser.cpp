@@ -102,12 +102,17 @@ void ImageAnalyser::addHsv(Mat &BGRimg, vector<Mat>& inputFeatureMatrixVector) {
 
 void ImageAnalyser::addHsvBlurred(Mat &BGRimg, vector<Mat>& inputFeatureMatrixVector) {
 	Mat image_hsv, image_blurred, image_blurred1;
+
+	//blur(BGRimg, image_blurred, Size(AddHsvBlurred_medianBlurKernalSize, AddHsvBlurred_medianBlurKernalSize), Point(-1, -1), BORDER_REFLECT);
+	//blur(image_blurred, image_blurred1, Size(AddHsvBlurred_medianBlurKernalSize, AddHsvBlurred_medianBlurKernalSize), Point(-1, -1), BORDER_REFLECT);
+	//blur(image_blurred1, image_blurred, Size(AddHsvBlurred_medianBlurKernalSize, AddHsvBlurred_medianBlurKernalSize), Point(-1, -1), BORDER_REFLECT);
+
 	medianBlur(BGRimg, image_blurred, AddHsvBlurred_medianBlurKernalSize);
-	medianBlur(image_blurred, image_blurred1, AddHsvBlurred_medianBlurKernalSize);
-	medianBlur(image_blurred1, image_blurred, AddHsvBlurred_medianBlurKernalSize);
+	//medianBlur(image_blurred, image_blurred1, AddHsvBlurred_medianBlurKernalSize);
+	//medianBlur(image_blurred1, image_blurred, AddHsvBlurred_medianBlurKernalSize);
 
 
-	//cvtColor(image_blurred, image_hsv, CV_BGR2HSV);
+	cvtColor(image_blurred, image_hsv, CV_BGR2HSV);
 	//cvtColor(image_blurred, image_hsv, CV_BGR2XYZ);
 	std::vector<cv::Mat> hsv_channels;
 	//cv::split(image_hsv, hsv_channels);
@@ -374,7 +379,8 @@ void ImageAnalyser::equaliseColorHisto(Mat &bgr_img) {
 
 int ImageAnalyser::gridSize = 5;
 int ImageAnalyser::euclideanSize = 15;
-int ImageAnalyser::AddHsvBlurred_medianBlurKernalSize = 15;
+int ImageAnalyser::AddHsvBlurred_medianBlurKernalSize = 31;
+int ImageAnalyser::globalKernelSize = 25;
 
 string ImageAnalyser::lastProcessedImgFilename = "";
 string ImageAnalyser::lastProcessedImgAnnotatedFilename = "";

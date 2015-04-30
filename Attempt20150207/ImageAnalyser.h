@@ -48,6 +48,7 @@ public:
 	
 	static void addWaveletMeasures_myInitialIdea(string& waveletFilename, vector<Mat>& inputFeatureMatrixVector);
 	static void addWaveletMeasures_unsupervisedTextureSegmentationPaper(string& waveletFilename, vector<Mat>& inputFeatureMatrixVector);
+	static void addWaveletMeasures_homogeinity(Mat& grayscaledImg, string& waveletFilename, vector<Mat>& inputFeatureMatrixVector);
 
 	/***Other***/
 	static void addY(Mat &img, vector<Mat>& inputFeatureMatrixVector);
@@ -79,6 +80,7 @@ public:
 	//TO_GRID
 	static int gridSize;
 	static int euclideanSize;
+	static int globalKernelSize;
 
 	static int AddHsvBlurred_medianBlurKernalSize;
 	

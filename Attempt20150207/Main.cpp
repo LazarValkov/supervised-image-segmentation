@@ -42,7 +42,7 @@ void main() {
 	crossVal.kfold(5, logFilepath, fileList_train_full, tgwlts);
 
 	//Test_grid_colorBlurred* tgcb = new Test_grid_colorBlurred(false, true, positiveOrgan, negativeOrgans);
-	//crossVal.kfold(2, logFilepath, fileList_train_debug, tgcb);
+	//crossVal.kfold(3, logFilepath, fileList_train_full, tgcb);
 	
 	//Test_grid_HSVblurred_Laws_Wavelets* tghsvblw = new Test_grid_HSVblurred_Laws_Wavelets(false, true, positiveOrgan, negativeOrgans);
 	//crossVal.kfold(2, logFilepath, fileList_train_debug, tghsvblw);
