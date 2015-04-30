@@ -1,8 +1,8 @@
 #ifndef NEURAL_NETWORK_CLASSIFIER
 #define NEURAL_NETWORK_CLASSIFIER
 #include "Classifier.h"
-#include "floatfann.h"
-#include "fann_cpp.h"
+#include "fann/floatfann.h"
+#include "fann/fann_cpp.h"
 #include "opencv2/imgproc/imgproc.hpp"
 #include "opencv2/highgui/highgui.hpp"
 #include "GlobalVariables.h"
