@@ -15,7 +15,7 @@ const Vec3b COLOR_LUNGS = Vec3b(0, 255, 0);
 const Vec3b COLOR_DIAPHRAGM = Vec3b(255, 255, 0);
 const Vec3b COLOR_LIVER = Vec3b(0, 0, 255);
 
-int mainilimgdddoo(int argc, char* argv[])
+int main(int argc, char* argv[])
 {
 	string fileList = "C:\\D\\Work\\University\\Stage 3\\final year project\\data\\annotatedImagesOnly\\Test\\filelist.txt";
 	string fileList_new = fileList + "_new.txt";
