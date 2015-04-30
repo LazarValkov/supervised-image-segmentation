@@ -25,6 +25,7 @@
 using namespace std;
 
 void main() {
+	//
 	string logFilepath = "C:\\temp\\firstLog.txt";
 	string fileList_train_debug =	"C:\\D\\Work\\University\\Stage 3\\final year project\\data\\annotatedImagesOnly\\Train\\filelist_train_d.txt";
 	string fileList_train_full =	"C:\\D\\Work\\University\\Stage 3\\final year project\\data\\annotatedImagesOnly\\Train\\filelist_train_full.txt";
