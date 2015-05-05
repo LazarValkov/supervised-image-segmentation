@@ -107,6 +107,12 @@
     <ClInclude Include="Test_grid_HSVblurred_Laws_Wavelets.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="StudentsTTests.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FinalTest_grid_colorBlurred.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">

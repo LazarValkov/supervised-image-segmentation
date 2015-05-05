@@ -93,7 +93,7 @@ void ImageAnalyser::processImage(string& filenameImg, string& filenameAnnotatedI
 	addImageToInput_Binary(image, annotatedImage, inputFeatureMatrixVector
 		, input, correctOutput, organsCount, positiveOrgan, negativeOrgans, isForTraining, currentEntry);
 	
-	if (DataVisualiser::isOn)
+	if (DataVisualiser::isOn && !isForTraining)
 		DataVisualiser::visualisingData.push_back(DataVisualiser::VisualisingData(annotatedImage, positiveOrgan, negativeOrgans, startingEntry));
 }
 

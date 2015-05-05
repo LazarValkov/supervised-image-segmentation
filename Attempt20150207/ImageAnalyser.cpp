@@ -87,9 +87,11 @@ void ImageAnalyser::downsampleUsingGPyramid(Mat &image, Mat &annotatedImage, vec
 
 void ImageAnalyser::addHsv(Mat &BGRimg, vector<Mat>& inputFeatureMatrixVector) {
 	Mat image_hsv;
-	cvtColor(BGRimg, image_hsv, CV_BGR2HSV);
+	Mat image_lab;
+	cvtColor(BGRimg, image_lab, CV_BGR2HLS);
 	std::vector<cv::Mat> hsv_channels;
-	cv::split(image_hsv, hsv_channels);
+	//cv::split(image_hsv, hsv_channels);
+	cv::split(image_lab, hsv_channels);
 	Mat h_image_norm, s_image_norm, v_image_norm;
 	hsv_channels[0].convertTo(h_image_norm, CV_32F);
 	hsv_channels[1].convertTo(s_image_norm, CV_32F);

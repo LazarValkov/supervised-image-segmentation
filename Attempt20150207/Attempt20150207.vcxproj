@@ -138,7 +138,9 @@
     <ClInclude Include="ImageAnalyser.h" />
     <ClInclude Include="ImageInfo.h" />
     <ClInclude Include="NeuralNetworkClassiffier.h" />
+    <ClInclude Include="StudentsTTests.h" />
     <ClInclude Include="Tester.h" />
+    <ClInclude Include="FinalTest_grid_colorBlurred.h" />
     <ClInclude Include="Test_grid_colorBlurred.h" />
     <ClInclude Include="Test_grid_HSV.h" />
     <ClInclude Include="Test_grid_HSVBlurred_HSVTextures.h" />

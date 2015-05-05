@@ -14,7 +14,7 @@ class CrossValidation {
 public:
 	int numOfListedImages, imagesWidth, imagesHeight;
 
-	void kfold(int k, string logFilename, string fileList, Tester* tester) {
+	void kfold(string logFilename, string testName, int k, string fileList, Tester* tester) {
 		vector<ImageInfo*> allImgInfos;
 		populateVectorFromFile(allImgInfos, fileList);
 		random_shuffle(allImgInfos.begin(), allImgInfos.end());
@@ -29,9 +29,21 @@ public:
 
 		for (int i = 0; i < k; ++i) {
 			cout << "Starting K-FOLD Iteration:" << i << endl;
-			int validationBlockInd_start = i*blockSize;
-			int validationBlockInd_end = (i+1)*blockSize; //exclusive
+
+			int validationBlockInd_start = 0;
+			int validationBlockInd_end = 0;
 			
+			//handle the special case where k=1:
+			//set the last two images to be validation
+			if (k == 1) {
+				validationBlockInd_start = numOfListedImages - 10;
+				validationBlockInd_end = numOfListedImages; //exclusive
+			}
+			else {
+				validationBlockInd_start = i*blockSize;
+				validationBlockInd_end = (i + 1)*blockSize; //exclusive
+			}
+
 			/**Sort out the training/validation sets for the current interation**/
 			vector<ImageInfo*> trainingImages, validationImages;
 			for (int x = 0; x < numOfListedImages; ++x) {
@@ -52,35 +64,58 @@ public:
 		float sum_accuracy = 0;
 		float sum_precision = 0;
 		float sum_truePositive = 0;
+		float sum_fMeasure = 0;
 		int numberOfConfMatrices = resultingConfusionMatrices.size();
 		for (int i = 0; i < resultingConfusionMatrices.size(); ++i) {
 			ConfusionMatrix* tmpCM = resultingConfusionMatrices[i];
 			sum_accuracy += tmpCM->getAccuracy();
 			sum_precision += tmpCM->getPrecision();
 			sum_truePositive += tmpCM->getTruePositive();
+			sum_fMeasure += tmpCM->getFMeasure();
 		}
+		
 		float mean_accuracy = sum_accuracy / numberOfConfMatrices;
 		float mean_precision = sum_precision / numberOfConfMatrices;
 		float mean_truePositive = sum_truePositive / numberOfConfMatrices;
+		float mean_fMeasure = sum_fMeasure / numberOfConfMatrices;
 
 		//todo: debug and check this works!:
-		sum_accuracy = sum_precision = sum_truePositive = 0;
+		sum_accuracy = sum_precision = sum_truePositive = sum_fMeasure = 0;
 
 		for (int i = 0; i < resultingConfusionMatrices.size(); ++i) {
 			ConfusionMatrix* tmpCM = resultingConfusionMatrices[i];
 			sum_accuracy += pow((tmpCM->getAccuracy()-mean_accuracy),2);
 			sum_precision += pow((tmpCM->getPrecision()-mean_precision),2);
 			sum_truePositive += pow((tmpCM->getTruePositive()-mean_truePositive),2);
+			sum_fMeasure += pow((tmpCM->getFMeasure() - mean_fMeasure), 2);
 		}
 		
 		
 		float std_deviation_accuracy = sqrt(sum_accuracy / numberOfConfMatrices);
 		float std_deviation_precision = sqrt(sum_precision / numberOfConfMatrices);
 		float std_deviation_truePositive = sqrt(sum_truePositive / numberOfConfMatrices);
+		float std_deviation_fMeasure = sqrt(sum_fMeasure / numberOfConfMatrices);
 
-		cout << "TruePositive Mean\Accuracy: " << mean_accuracy << " \ " << std_deviation_accuracy << endl;
-		cout << "Precision Mean\Precision: " << mean_precision << " \ " << std_deviation_precision << endl;
+		cout << "Accuracy Mean\StdDeviation: " << mean_accuracy << " \ " << std_deviation_accuracy << endl;
+		cout << "Precision Mean\StdDeviation: " << mean_precision << " \ " << std_deviation_precision << endl;
 		cout << "TruePositive Mean\StdDeviation: " << mean_truePositive << " \ " << std_deviation_truePositive << endl;
+		cout << "FMeasure Mean\StdDeviation:" << mean_fMeasure << " \ " << std_deviation_fMeasure << endl;
+
+		//Log the results to file
+		ofstream ofs;
+		ofs.open(logFilename, ios::app);
+		if (!ofs)
+			ofs.open(logFilename);
+		ofs << testName << endl;
+		ofs << resultingConfusionMatrices.size();
+		for (int i = 0; i < resultingConfusionMatrices.size(); ++i) {
+			ConfusionMatrix* tmpCM = resultingConfusionMatrices[i];
+			ofs << " " << tmpCM->getAccuracy() << " " << tmpCM->getFMeasure();
+		}
+		ofs << " " << mean_accuracy << " " << std_deviation_accuracy <<  " " << mean_fMeasure << " "<< std_deviation_fMeasure << endl;
+		//ofs << " " << testResults->getAccuracy() << " " << testResults->getFMeasure();
+		//ofs << description << "\n" << *testResults << "\n";
+		ofs.close();
 	}
 
 	void populateVectorFromFile(vector<ImageInfo*>& allImgInfos, string fileList) {

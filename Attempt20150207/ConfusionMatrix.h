@@ -14,6 +14,7 @@ public:
 	virtual float getAccuracy() { return -1; }
 	virtual float getPrecision() { return -1; }
 	virtual float getTruePositive() { return -1; }
+	virtual float getFMeasure() { return -1; }
 
 	
 protected:

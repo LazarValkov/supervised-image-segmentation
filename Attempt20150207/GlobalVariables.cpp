@@ -24,6 +24,25 @@ int GlobalVariables::getOrganIndex(Organ organ) {
 		return 4;
 	}
 }
+string GlobalVariables::getOrganName(Organ organ) {
+	if (organ == OTHERS) {
+		return "others";
+	}
+	else if (organ == HEART) {
+		return "heart";
+	}
+	else if (organ == LUNGS) {
+		return "lungs";
+	}
+	else if (organ == DIAPHRAGME) {
+		return "diaphragm";
+	}
+	else if (organ == LIVER) {
+		return "liver";
+	}
+	else
+		return "";
+}
 
 GlobalVariables::Organ GlobalVariables::getOrganByColor(Vec3b color) {
 	if (color == GlobalVariables::COLOR_OTHERS) {

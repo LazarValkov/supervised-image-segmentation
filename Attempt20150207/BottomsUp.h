@@ -15,14 +15,18 @@ using namespace cv;
 
 class BottomsUp {
 public:
-	BottomsUp(string filaname_liverClassifier, string filaname_diaphragmClassifier) {
-		liverClassifier = new NeuralNetworkClassifier(filaname_liverClassifier);
-		diaphragmClassifier = new NeuralNetworkClassifier(filaname_diaphragmClassifier);
+	//ORDER: OTHERS, HEART, LUNGS, DIAPHRAGM, LIVER
+	BottomsUp(string* classifierFilenames, int numOfClassifiers) : _numOfClassifiers(numOfClassifiers){
+		_classifiers = new Classifier*[_numOfClassifiers];
+		for (int i = 0; i < numOfClassifiers; ++i) {
+			_classifiers[i] = new NeuralNetworkClassifier(classifierFilenames[i]);
+		}
 	}
 	~BottomsUp() {
-		delete liverClassifier;
-		delete diaphragmClassifier;
-		//delete input_f_test;
+		for (int i = 0; i < _numOfClassifiers; ++i) {
+			delete _classifiers[i];
+		}
+		delete[] _classifiers;
 	}
 
 	void run(string filename_imgList_train, string filename_imgList_test, ImageAnalyser::IA_Functions iaFunctions, int featureVectorSize_Input, int featureVectorSize_Output) {
@@ -81,15 +85,14 @@ public:
 				
 			}
 		}
-		
 	}
 private:
 	Mat * input_f_test;
 	int* currentlyAt;
 	int cols;
-	Classifier* liverClassifier;
-	Classifier* diaphragmClassifier;
 
+	int _numOfClassifiers;
+	Classifier** _classifiers;
 };
 
 

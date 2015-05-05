@@ -11,6 +11,7 @@ public:
 
 static int getOrganIndex(Organ);
 static Organ getOrganByColor(Vec3b color);
+static string getOrganName(Organ);
 
 static const Vec3b COLOR_OFFAL_BACKGROUND;
 static const Vec3b COLOR_OTHERS;

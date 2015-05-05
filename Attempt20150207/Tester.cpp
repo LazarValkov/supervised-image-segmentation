@@ -50,13 +50,14 @@ ConfusionMatrix* Tester::run(string logFilename, vector<ImageInfo*>& trainingIma
 	delete correctOutput_f_test;
 
 
-	/**Append the test results to the log file**/
+	/**Append the test results to the log file
 	ofstream ofs;
 	ofs.open(logFilename, ios::app);
 	if (!ofs)
 		ofs.open(logFilename);
-	ofs << description << "\n" << *testResults << "\n";
-	ofs.close();
+	ofs << " " << testResults->getAccuracy() << " " << testResults->getFMeasure();
+	//ofs << description << "\n" << *testResults << "\n";
+	ofs.close();**/
 
 	return testResults;
 }

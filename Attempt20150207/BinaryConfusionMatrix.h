@@ -13,6 +13,7 @@ public:
 	virtual float getAccuracy() { return accuracy; }
 	virtual float getPrecision() { return precision; }
 	virtual float getTruePositive() { return  truePositive; }
+	virtual float getFMeasure() { return fmeasure; }
 
 
 

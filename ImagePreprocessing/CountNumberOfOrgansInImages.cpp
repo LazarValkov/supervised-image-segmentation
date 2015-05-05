@@ -17,7 +17,7 @@ const Vec3b COLOR_LIVER = Vec3b(0, 0, 255);
 
 int main(int argc, char* argv[])
 {
-	string fileList = "C:\\D\\Work\\University\\Stage 3\\final year project\\data\\annotatedImagesOnly\\Test\\filelist.txt";
+	string fileList = "C:\\D\\Work\\University\\Stage 3\\final year project\\data\\annotatedImagesOnly\\All\\filelist.txt";
 	string fileList_new = fileList + "_new.txt";
 	ifstream ifs(fileList);
 	ofstream ofs;
